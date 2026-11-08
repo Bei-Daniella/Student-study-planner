@@ -1,0 +1,346 @@
+/* General settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #29233b;
+}
+
+/* Navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 7%;
+    background: #ffffff;
+    box-shadow: 0 3px 15px rgba(70, 40, 110, 0.06);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    color: #5632a8;
+}
+
+.logo-icon {
+    font-size: 27px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 27px;
+}
+
+.navbar nav a,
+.nav-buttons a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #514b60;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #7544d4;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.signup-btn {
+    background: #7041ca;
+    color: white !important;
+    padding: 11px 21px;
+    border-radius: 8px;
+}
+
+/* Hero section */
+.hero {
+    min-height: 440px;
+    padding: 75px 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    overflow: hidden;
+    background: linear-gradient(110deg, #f7f3ff, #eee7ff);
+}
+
+.hero-content {
+    max-width: 540px;
+}
+
+.hero h1 {
+    font-size: 43px;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    color: #30234b;
+}
+
+.hero h1 span {
+    color: #7544d4;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #706981;
+    max-width: 440px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.get-started {
+    background: #7041ca;
+    color: white;
+}
+
+.learn-more {
+    background: white;
+    color: #7041ca;
+    border: 1px solid #d8c9f4;
+}
+
+/* Abstract hero decoration */
+.hero-decoration {
+    width: 360px;
+    height: 300px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.decorative-circle {
+    width: 220px;
+    height: 220px;
+    background: #d8c6ff;
+    border-radius: 50%;
+    position: absolute;
+    top: 35px;
+    left: 70px;
+    opacity: 0.8;
+}
+
+.decorative-wave {
+    position: absolute;
+    width: 270px;
+    height: 100px;
+    border-radius: 50%;
+    transform: rotate(-25deg);
+}
+
+.wave-one {
+    background: #a987ef;
+    top: 90px;
+    left: 15px;
+}
+
+.wave-two {
+    background: #8c63df;
+    top: 135px;
+    left: 55px;
+    opacity: 0.85;
+}
+
+.wave-three {
+    background: #c2a9fa;
+    top: 180px;
+    left: 5px;
+    opacity: 0.9;
+}
+
+/* Features section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    padding: 65px 7%;
+}
+
+.feature-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 25px 18px;
+    background: white;
+    border-radius: 13px;
+    box-shadow: 0 5px 25px rgba(70, 40, 110, 0.09);
+}
+
+.feature-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.calendar-icon {
+    background: #eee5ff;
+    color: #7544d4;
+}
+
+.progress-icon {
+    background: #e3f7ed;
+    color: #269b64;
+}
+
+.performance-icon {
+    background: #fff0df;
+    color: #e69a35;
+}
+
+.reminder-icon {
+    background: #ffe8ef;
+    color: #d94f7b;
+}
+
+.feature-card h3 {
+    font-size: 16px;
+    margin: 3px 0 9px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #827b90;
+}
+
+/* Motivational banner */
+.motivation {
+    margin: 10px 7% 65px;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(100deg, #7041ca, #9871e4);
+    border-radius: 15px;
+    color: white;
+}
+
+.trophy {
+    font-size: 42px;
+}
+
+.motivation-text {
+    flex: 1;
+}
+
+.motivation-text h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.motivation-text p {
+    font-size: 14px;
+    color: #eee5ff;
+}
+
+.start-now {
+    text-decoration: none;
+    color: #7041ca;
+    background: white;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .navbar nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        padding: 55px 7%;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero-decoration {
+        width: 270px;
+        transform: scale(0.8);
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .navbar nav {
+        gap: 14px;
+    }
+
+    .nav-buttons {
+        gap: 12px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 55px 7%;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-decoration {
+        align-self: center;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        padding: 40px 6%;
+    }
+
+    .motivation {
+        margin: 10px 6% 45px;
+        padding: 25px;
+        flex-wrap: wrap;
+    }
+
+    .motivation-text h2 {
+        font-size: 19px;
+    }
+}

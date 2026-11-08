@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Study Planner homepage</title>
+
+    <link rel="stylesheet" href="{% static 'planner/home.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🎓</span>
+            <span>Student <strong>Study Planner</strong></span>
+        </div>
+
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#">My Schedule</a>
+            <a href="#">Tasks</a>
+            <a href="#">Progress</a>
+            <a href="#">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="#" class="login-btn">Login</a>
+            <a href="#" class="signup-btn">Sign Up</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Welcome to<br>
+                <span>Student Study Planner</span>
+            </h1>
+
+            <p>
+                Organize your studies, manage your time,
+                and achieve your academic goals.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#" class="get-started">🚀 Get Started</a>
+                <a href="#" class="learn-more">▶ Learn More</a>
+            </div>
+        </div>
+
+        <div class="hero-decoration">
+            <div class="decorative-circle"></div>
+            <div class="decorative-wave wave-one"></div>
+            <div class="decorative-wave wave-two"></div>
+            <div class="decorative-wave wave-three"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+
+        <div class="feature-card">
+            <div class="feature-icon calendar-icon">▦</div>
+            <div>
+                <h3>Plan Your Study</h3>
+                <p>Create a personalized study schedule.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon progress-icon">✓</div>
+            <div>
+                <h3>Track Progress</h3>
+                <p>Monitor your tasks and achievements.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon performance-icon">▥</div>
+            <div>
+                <h3>Boost Performance</h3>
+                <p>Stay organized and reach your goals.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon reminder-icon">♟</div>
+            <div>
+                <h3>Get Reminders</h3>
+                <p>Never miss an important deadline again.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Motivational Banner -->
+    <section class="motivation">
+        <div class="trophy">🏆</div>
+
+        <div class="motivation-text">
+            <h2>Your Success is Our Priority!</h2>
+            <p>Plan well today, achieve more tomorrow.</p>
+        </div>
+
+        <a href="#" class="start-now">Start Now →</a>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Student Study Planner</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'planner/login.css' %}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="brand">✦ Study Planner</div>
+        <a href="{% url 'home' %}" class="home-link">Home</a>
+    </nav>
+
+    <main class="main-container">
+
+        <div class="login-card">
+
+            <div class="top-icon">✦</div>
+
+            <h1>Welcome Back!</h1>
+
+            <p class="subtitle">
+                Log in to continue to your Student Study Planner.
+            </p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="error-message">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}">Password</label>
+
+                    <div class="password-wrapper">
+                        {{ form.password }}
+                        <button type="button"
+                                class="toggle-password"
+                                onclick="togglePassword('id_password', this)">
+                            👁
+                        </button>
+                    </div>
+
+                    {{ form.password.errors }}
+                </div>
+
+                <button type="submit" class="login-button">
+                    Log In →
+                </button>
+            </form>
+
+            <p class="register-text">
+                Don't have an account?
+                <a href="{% url 'register' %}">Create Account</a>
+            </p>
+
+        </div>
+
+    </main>
+
+    <footer>
+        Student Study Planner © 2026
+    </footer>
+
+    <script>
+        function togglePassword(fieldId, button) {
+            const passwordField = document.getElementById(fieldId);
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                button.textContent = "🙈";
+            } else {
+                passwordField.type = "password";
+                button.textContent = "👁";
+            }
+        }
+    </script>
+
+</body>
+</html>

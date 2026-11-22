@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Student Study Planner</title>
+
+    <!-- Homepage and dashboard styles -->
+    <link rel="stylesheet" href="{% static 'planner/home.css' %}">
+    <link rel="stylesheet" href="{% static 'planner/dashboard.css' %}">
+</head>
+
+<body>
+
+    <!-- Homepage Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🎓</span>
+            <span>Student <strong>Study Planner</strong></span>
+        </div>
+
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'dashboard' %}" class="active">Dashboard</a>
+            <a href="#schedule-section">My Schedule</a>
+            <a href="#tasks-section">Tasks</a>
+            <a href="#progress-section">Progress</a>
+            <a href="{% url 'home' %}">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="{% url 'logout' %}" class="signup-btn">Logout</a>
+        </div>
+    </header>
+
+
+    <div class="dashboard-container">
+
+        <main class="main-content">
+
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-text">
+                    <span class="welcome-tag">YOUR LEARNING SPACE</span>
+                    <h1>Welcome back, {{ request.user.username }}!</h1>
+                    <p>
+                        Stay organized, manage your study time and keep
+                        making progress towards your academic goals.
+                    </p>
+                </div>
+
+                <div class="welcome-decoration">
+                    <div class="decoration-circle circle-one"></div>
+                    <div class="decoration-circle circle-two"></div>
+                    <div class="book-icon">📚</div>
+                </div>
+            </section>
+
+
+            <!-- Statistics -->
+            <section class="stats-grid">
+
+                <div class="stat-card purple-card">
+                    <div class="stat-icon">📅</div>
+                    <p>Study Sessions</p>
+                    <h2>{{ total_sessions }}</h2>
+                    <small>Total scheduled sessions</small>
+                </div>
+
+                <div class="stat-card pink-card">
+                    <div class="stat-icon">📝</div>
+                    <p>Total Tasks</p>
+                    <h2>{{ total_tasks }}</h2>
+                    <small>All your study tasks</small>
+                </div>
+
+                <div class="stat-card green-card">
+                    <div class="stat-icon">✓</div>
+                    <p>Completed Tasks</p>
+                    <h2>{{ completed_tasks }}</h2>
+                    <small>Tasks you have completed</small>
+                </div>
+
+                <div class="stat-card orange-card">
+                    <div class="stat-icon">⏳</div>
+                    <p>Pending Tasks</p>
+                    <h2>{{ pending_tasks }}</h2>
+                    <small>Tasks waiting to be done</small>
+                </div>
+
+            </section>
+
+
+            <!-- Study Sessions and Tasks -->
+            <section class="content-grid">
+
+                <div class="panel schedule-panel" id="schedule-section">
+                    <div class="panel-heading">
+                        <div>
+                            <span class="section-label">YOUR PLANNER</span>
+                            <h2>Upcoming Study Sessions</h2>
+                        </div>
+                    </div>
+
+                    {% for session in upcoming_sessions %}
+                        <div class="schedule-item">
+                            <div class="schedule-icon">📖</div>
+
+                            <div class="schedule-details">
+                                <h3>{{ session.title }}</h3>
+                                <p>{{ session.subject }}</p>
+                                <small>
+                                    {{ session.scheduled_date }}
+                                    · {{ session.start_time }}
+                                    · {{ session.duration }} minutes
+                                </small>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="empty-state">
+                            <span>📚</span>
+                            <p>No upcoming study sessions yet.</p>
+                            <small>Your scheduled sessions will appear here.</small>
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+                <div class="panel tasks-panel" id="tasks-section">
+                    <div class="panel-heading">
+                        <div>
+                            <span class="section-label">STAY ON TRACK</span>
+                            <h2>Recent Tasks</h2>
+                        </div>
+                    </div>
+
+                    {% for task in recent_tasks %}
+                        <div class="task-item">
+                            <div class="task-indicator {% if task.is_completed %}completed{% endif %}"></div>
+
+                            <div class="task-details">
+                                <h3>{{ task.title }}</h3>
+
+                                {% if task.due_date %}
+                                    <small>Due: {{ task.due_date }}</small>
+                                {% else %}
+                                    <small>No due date</small>
+                                {% endif %}
+                            </div>
+
+                            {% if task.is_completed %}
+                                <span class="task-status done">Done</span>
+                            {% else %}
+                                <span class="task-status pending">Pending</span>
+                            {% endif %}
+                        </div>
+                    {% empty %}
+                        <div class="empty-state">
+                            <span>✍️</span>
+                            <p>No tasks added yet.</p>
+                            <small>Your tasks will appear here.</small>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </section>
+
+
+            <!-- Study Progress -->
+            <section class="panel progress-panel" id="progress-section">
+                <div class="panel-heading">
+                    <div>
+                        <span class="section-label">YOUR ACHIEVEMENTS</span>
+                        <h2>Study Progress</h2>
+                    </div>
+
+                    <h2 class="progress-number">{{ progress }}%</h2>
+                </div>
+
+                <p class="progress-description">
+                    Percentage of your tasks that you have completed.
+                </p>
+
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: {{ progress }}%;"></div>
+                </div>
+
+                <div class="progress-footer">
+                    <span>{{ completed_tasks }} completed</span>
+                    <span>{{ pending_tasks }} remaining</span>
+                </div>
+            </section>
+
+
+            <footer class="dashboard-footer">
+                <p>Student Study Planner · Organize your learning, achieve your goals.</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

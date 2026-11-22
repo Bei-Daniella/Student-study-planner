@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #5420a0, #9561df, #f2a5d4);
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+}
+
+.brand {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.home-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.7);
+    padding: 9px 22px;
+    border-radius: 25px;
+}
+
+.home-link:hover {
+    background: white;
+    color: #6425b5;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-container::before,
+.main-container::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    z-index: 0;
+}
+
+.main-container::before {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    left: 5%;
+}
+
+.main-container::after {
+    width: 220px;
+    height: 220px;
+    bottom: 3%;
+    right: 5%;
+}
+
+.register-card {
+    position: relative;
+    z-index: 1;
+    background: white;
+    width: 100%;
+    max-width: 440px;
+    padding: 38px;
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(35, 10, 70, 0.25);
+}
+
+.top-icon {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #6425b5, #d46ac5);
+    color: white;
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 27px;
+    margin: 0 auto 18px;
+}
+
+.register-card h1 {
+    text-align: center;
+    color: #35136f;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.subtitle {
+    text-align: center;
+    color: #96909f;
+    font-size: 12px;
+    margin: 8px 0 28px;
+}
+
+.form-group {
+    margin-bottom: 19px;
+}
+
+.form-group label {
+    display: block;
+    color: #514365;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #e5dcef;
+    border-radius: 11px;
+    background: #faf8fd;
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    color: #35136f;
+}
+
+.form-group input:focus {
+    border-color: #9252d1;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(146, 82, 209, 0.1);
+}
+
+.form-group ul {
+    list-style: none;
+    color: #d04468;
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+.error-message {
+    color: #d04468;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.register-card button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 11px;
+    background: linear-gradient(100deg, #6425b5, #a34bc7);
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: 0.3s;
+}
+
+.register-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(100, 37, 181, 0.25);
+}
+
+.login-text {
+    text-align: center;
+    color: #898292;
+    font-size: 12px;
+    margin-top: 23px;
+}
+
+.login-text a {
+    color: #792fb7;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    padding: 18px;
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        padding: 20px;
+    }
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .register-card {
+        padding: 28px 22px;
+    }
+
+    .register-card h1 {
+        font-size: 24px;
+    }
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    padding-right: 48px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    background: none !important;
+    border: none;
+    padding: 5px !important;
+    margin: 0 !important;
+    width: auto !important;
+    color: #6425b5 !important;
+    font-size: 18px !important;
+    cursor: pointer;
+    box-shadow: none !important;
+    transform: none !important;
+}
